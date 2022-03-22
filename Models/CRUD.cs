@@ -20,7 +20,6 @@ namespace RestfullDEMO.Models
             DataTable dt = new DataTable();
             c.da.Fill(dt);
             c.CloseCN();
-
             return dt;
         }
         // To Get Data From TABLE By ID
@@ -31,9 +30,7 @@ namespace RestfullDEMO.Models
             c.da = new NpgsqlDataAdapter(c.cmd);
             DataTable dt = new DataTable();
             c.da.Fill(dt);
-
             c.CloseCN();
-
             return dt;
         }
 
@@ -45,9 +42,7 @@ namespace RestfullDEMO.Models
             c.da = new NpgsqlDataAdapter(c.cmd);
             DataTable dt = new DataTable();
             c.da.Fill(dt);
-
             c.CloseCN();
-
             return dt;
         }
 
@@ -60,8 +55,6 @@ namespace RestfullDEMO.Models
                 c.cmd = new NpgsqlCommand($"delete from _TableName where _ID_Field = {id} ", c.cnx);
                 c.cmd.ExecuteNonQuery();
                 c.CloseCN();
-
-
                 return true;
             }
             catch (Exception ex)
@@ -79,21 +72,12 @@ namespace RestfullDEMO.Models
                 c.cmd = new NpgsqlCommand($"Update _TableName set _Update_Field = _Update_Value where _ID_Field = {id} ", c.cnx);
                 c.cmd.ExecuteNonQuery();
                 c.CloseCN();
-
-
                 return true;
             }
             catch (Exception ex)
             {
                 return false;
             }
-
-
         }
-
-
-
-
-
     }
 }

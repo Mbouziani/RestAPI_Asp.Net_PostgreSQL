@@ -11,8 +11,8 @@ namespace RestfullDEMO.Models
 
         Chaine c  = new Chaine();
 
-
-        public DataTable Load_data()
+        // To Get All Data From TABLE
+        public DataTable GetData()
         {
             c.OpenCN();
             c.cmd = new NpgsqlCommand("select * from _TableName", c.cnx);
@@ -23,8 +23,8 @@ namespace RestfullDEMO.Models
 
             return dt;
         }
-
-        public DataTable Load_data_with(int id)
+        // To Get Data From TABLE By ID
+        public DataTable GetDataByID(int id)
         {
             c.OpenCN();
             c.cmd = new NpgsqlCommand($"select * from _TableName where _ID_Field = {id} ", c.cnx);
@@ -36,7 +36,9 @@ namespace RestfullDEMO.Models
 
             return dt;
         }
-        public DataTable GetDataWithQuery(string Query)
+
+        // To Get Data From TABLE By Query
+        public DataTable GetDataByQuery(string Query)
         {
             c.OpenCN();
             c.cmd = new NpgsqlCommand(Query, c.cnx);
@@ -49,7 +51,8 @@ namespace RestfullDEMO.Models
             return dt;
         }
 
-        public bool delete_personne(int id )
+        // To Delete Data From TABLE By ID
+        public bool DeleteDataByID(int id )
         {
             try
             {
@@ -65,10 +68,10 @@ namespace RestfullDEMO.Models
             {
                 return false;
             }
-
-            
         }
-        public bool update_personne(int id)
+
+        // To Update Data in TABLE By ID
+        public bool UpdateDataByID(int id)
         {
             try
             {
